@@ -17,6 +17,6 @@ test("handles errors for scoops and toppings routes", async () => {
 
   await waitFor(async () => {
     const alerts = await screen.findAllByRole("alert");
-    expect(alerts).toHaveLength(3);
+    expect(alerts).toHaveLength(2);
   });
 });
