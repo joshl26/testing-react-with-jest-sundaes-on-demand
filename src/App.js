@@ -1,6 +1,6 @@
 import { Container } from "react-bootstrap";
-import OrderEntry from "./pages/entry/OrderEntry";
-import { OrderDetailsProvider } from "./contexts/OrderDetails";
+import OrderEntry from "./pages/entry/OrderEntry.jsx";
+import { OrderDetailsProvider } from "./contexts/OrderDetails.jsx";
 
 function App() {
   return (
