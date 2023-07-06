@@ -18,9 +18,9 @@ export default function OrderSummary({ setOrderPhase }) {
   return (
     <div>
       <h1>Order Summary</h1>
-      <h2>Scoops: {totals.scoops}</h2>
+      <h2>Scoops: {formatCurrency(totals.scoops)}</h2>
       <ul>{scoopList}</ul>
-      <h2>Toppings total: {totals.toppings}</h2>
+      <h2>Toppings: {formatCurrency(totals.toppings)}</h2>
       <ul>{toppingList}</ul>
     </div>
   );
