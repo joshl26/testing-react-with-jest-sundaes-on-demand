@@ -1,5 +1,6 @@
 import React from "react";
-import { useOrderDetails } from "../../contexts/OrderDetails";
+import SummaryForm from "./SummaryForm";
+import { useOrderDetails } from "../../contexts/OrderDetails.jsx";
 import { formatCurrency } from "../../utilities";
 
 export default function OrderSummary({ setOrderPhase }) {
@@ -22,6 +23,7 @@ export default function OrderSummary({ setOrderPhase }) {
       <ul>{scoopList}</ul>
       <h2>Toppings: {formatCurrency(totals.toppings)}</h2>
       <ul>{toppingList}</ul>
+      <SummaryForm setOrderPhase={setOrderPhase} />
     </div>
   );
 }

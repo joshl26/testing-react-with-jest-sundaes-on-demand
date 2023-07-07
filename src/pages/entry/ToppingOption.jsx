@@ -2,7 +2,7 @@ import Col from "react-bootstrap/Col";
 import Form from "react-bootstrap/Form";
 import { useOrderDetails } from "../../contexts/OrderDetails";
 
-function ToppingOption({ name, imagePath }) {
+export default function ToppingOption({ name, imagePath }) {
   const { updateItemCount } = useOrderDetails();
   const handleChange = (e) => {
     updateItemCount(name, e.target.checked ? 1 : 0, "toppings");
@@ -21,4 +21,3 @@ function ToppingOption({ name, imagePath }) {
     </Col>
   );
 }
-export default ToppingOption;

@@ -15,27 +15,18 @@ export default function Options({ optionType }) {
 
   // optionType is 'scoops' or 'toppings
   useEffect(() => {
-    //create  an abort controller to attach to the network request
-    const controller = new AbortController();
-
     axios
-      .get(`http://localhost:3030/${optionType}`, { signal: controller.signal })
+      .get(`http://localhost:3030/${optionType}`)
       .then((response) => setItems(response.data))
-      .catch((error) => {
-        if (error.name !== "CanceledError") setError(true);
-      });
-    //abort axios call on component unmount
-    return () => {
-      controller.abort();
-    };
+      .catch((error) => setError(true));
   }, [optionType]);
 
   if (error) {
+    // @ts-ignore
     return <AlertBanner />;
   }
 
   const ItemComponent = optionType === "scoops" ? ScoopOption : ToppingOption;
-
   const title = optionType[0].toUpperCase() + optionType.slice(1).toLowerCase();
 
   const optionItems = items.map((item) => (
