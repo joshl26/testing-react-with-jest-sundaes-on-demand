@@ -1,39 +1,16 @@
-import { useState } from "react";
-
-export function replaceCamelCaseWithSpaces(colorName) {
-  return colorName.replace(/\B([A-Z])\B/g, " $1");
-}
+import { Container } from "react-bootstrap";
+import OrderEntry from "./pages/entry/OrderEntry.jsx";
+import { OrderDetailsProvider } from "./contexts/OrderDetails.jsx";
 
 function App() {
-  const [buttonColor, setButtonColor] = useState("midnightblue");
-  const [boxChecked, setBoxChecked] = useState(false);
-  const newButtonColor =
-    buttonColor === "mediumvioletred" ? "midnightblue" : "mediumvioletred";
-
   return (
-    <div>
-      <button
-        disabled={boxChecked}
-        style={{
-          backgroundColor: boxChecked ? "grey" : newButtonColor,
-          color: "white",
-        }}
-        onClick={() => {
-          setButtonColor(newButtonColor);
-        }}
-      >
-        Change to {buttonColor}
-      </button>
-      <input
-        type="checkbox"
-        id="disable-button-checkbox"
-        defaultChecked={boxChecked}
-        onClick={() => {
-          setBoxChecked(!boxChecked);
-        }}
-      />
-      <label htmlFor="disable-button-checkbox">Disable button</label>
-    </div>
+    <Container>
+      <OrderDetailsProvider>
+        {/*Summary page and entry page need provider*/}
+        <OrderEntry />
+      </OrderDetailsProvider>
+      {/*Confirmation page does not need provider*/}
+    </Container>
   );
 }
 
